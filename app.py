@@ -1,8 +1,8 @@
-import os
 import logging
 
 from logging import Formatter, FileHandler
-from flask import Flask, render_template, request
+from flask import Flask, render_template
+from utils import get_ip
 
 
 app = Flask(__name__)
@@ -27,4 +27,4 @@ if not app.debug:
 
 # Default port 8080:
 if __name__ == '__main__':
-    app.run(host=app.config.get('HOST'), port=app.config.get('PORT'))
+    app.run(host=get_ip(), port=app.config.get('PORT'))
